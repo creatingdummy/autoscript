@@ -4,7 +4,7 @@ Automatic Script Installer by DRCYBER
 
 ### Centos 6 (KVM VPS)
 ```
-wget https://raw.github.com/drcyber96/autoscript/master/centos6-kvm.sh
+wget https://raw.github.com/drcyber96/autoscriptwebmin/master/centos6-kvm.sh
 bash centos6-kvm.sh
 ```
 Tested on
