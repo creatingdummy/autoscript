@@ -143,18 +143,6 @@ LANG=C /usr/bin/mrtg /etc/mrtg/mrtg.cfg
 LANG=C /usr/bin/mrtg /etc/mrtg/mrtg.cfg
 cd
 
-# setting port ssh
-sed -i '/Port 22/a Port 143' /etc/ssh/sshd_config
-sed -i 's/#Port 22/Port  22/g' /etc/ssh/sshd_config
-service sshd restart
-chkconfig sshd on
-
-# install dropbear
-yum -y install dropbear
-echo "OPTIONS=\"-p 109 -p 110 -p 443\"" > /etc/sysconfig/dropbear
-echo "/bin/false" >> /etc/shells
-service dropbear restart
-chkconfig dropbear on
 
 # install vnstat gui
 cd /home/vps/public_html/
@@ -180,14 +168,6 @@ wget -O /etc/squid/squid.conf "https://raw.github.com/drcyber96/autoscriptwebmin
 sed -i $MYIP2 /etc/squid/squid.conf;
 service squid restart
 chkconfig squid on
-
-# install webmin
-cd
-wget http://prdownloads.sourceforge.net/webadmin/webmin-1.670-1.noarch.rpm
-rpm -i webmin-1.670-1.noarch.rpm;
-rm webmin-1.670-1.noarch.rpm
-service webmin restart
-chkconfig webmin on
 
 # pasang bmon
 if [ "$OS" == "x86_64" ]; then
