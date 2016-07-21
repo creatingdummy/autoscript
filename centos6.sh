@@ -105,9 +105,9 @@ cd /etc/openvpn/
 wget -O /etc/openvpn/1194-client.ovpn "https://raw.github.com/drcyber96/autoscriptwebmin/master/conf/1194-client.conf"
 sed -i $MYIP2 /etc/openvpn/1194-client.ovpn;
 PASS=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1`;
-useradd -M -s /bin/false anas
-echo "anas:$PASS" | chpasswd
-echo "anas" > pass.txt
+useradd -M -s /bin/false drcyber96
+echo "drcyber96:$PASS" | chpasswd
+echo "drcyber96" > pass.txt
 echo "$PASS" >> pass.txt
 tar cf client.tar 1194-client.ovpn pass.txt
 cp client.tar /home/vps/public_html/
@@ -203,12 +203,19 @@ wget -O speedtest_cli.py "https://raw.github.com/sivel/speedtest-cli/master/spee
 wget -O bench-network.sh "https://raw.github.com/drcyber96/autoscriptwebmin/master/conf/bench-network.sh"
 wget -O ps_mem.py "https://raw.github.com/pixelb/ps_mem/master/ps_mem.py"
 wget -O limit.sh "https://raw.github.com/drcyber96/autoscriptwebmin/master/conf/limit.sh"
+curl http://script.jualssh.com/user-login.sh > user-login.sh
+curl http://script.jualssh.com/user-expire.sh > user-expire.sh
+curl http://script.jualssh.com/user-limit.sh > user-limit.sh
 echo "0 0 * * * root /root/user-expire.sh" > /etc/cron.d/user-expire
 sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.local
 sed -i '$ i\screen -AmdS limit /root/limit.sh' /etc/rc.d/rc.local
 chmod +x bench-network.sh
 chmod +x speedtest_cli.py
 chmod +x ps_mem.py
+chmod +x user-login.sh
+chmod +x user-expire.sh
+chmod +x user-limit.sh
+chmod +x limit.sh
 
 
 # cron
@@ -281,6 +288,6 @@ echo "IPv6     : [off]"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Log Installasi --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
+echo "REBOOT VPS ANDA type  reboot      dan enter  keluar putty"  | tee -a log-install.txt
+echo "DAH REBOOT KELUAR PUTTY DAN VPS ANDA TELAH SIAP UNTUK DIGUNAKAN"  | tee -a log-install.txt
 echo "==============================================="  | tee -a log-install.txt
