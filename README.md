@@ -1,5 +1,3 @@
-# autoscriptwebmin
-
 Automatic Script Installer by DRCYBER
 
 ==========
@@ -13,3 +11,7 @@ Tested on
 * CentOS 6 32 bit
 * CentOS 6 64 bit
 * KVM only
+
+
+
+
