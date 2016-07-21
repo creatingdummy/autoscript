@@ -281,6 +281,6 @@ echo "IPv6     : [off]"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "Log Installasi --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "SILAHKAN REBOOT VPS ANDA !"  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
+echo "REBOOT VPS ANDA type  reboot      dan enter  keluar putty"  | tee -a log-install.txt
+echo "DAH REBOOT KELUAR PUTTY DAN VPS ANDA TELAH SIAP UNTUK DIGUNAKAN"  | tee -a log-install.txt
 echo "==============================================="  | tee -a log-install.txt
